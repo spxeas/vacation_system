@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "learning",
-    "slug": "learning",
+    "name": "vacation_request",
+    "slug": "vacation_request",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "learning",
+    "scheme": "vacationrequest",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -43,6 +43,19 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "2d6f31a7-a5e6-4381-95ad-3e6b9696095b"
+      }
+    },
+    "owner": "spxeas",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/2d6f31a7-a5e6-4381-95ad-3e6b9696095b"
     }
   }
 }

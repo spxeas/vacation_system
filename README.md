@@ -100,20 +100,7 @@ curl -X POST "$EXPO_PUBLIC_API_URL/vacation-requests" \
 - **ngrok**：本機啟動 Flask 後執行 `ngrok http 5000`，取得公開網址後把 `EXPO_PUBLIC_API_URL` 設為該 URL（HTTPS）。免費版網址每次啟動會變，建議更新 `.env` 或 `constants/config.ts`。
 - **Expo Publish**：登入 Expo 帳號後執行 `npx expo publish`，即可在 Expo Go App 中透過網頁連結或 QR Code 分享最新前端程式碼。
 - **Web 預覽**：執行 `npx expo export --platform web` 後可用 `npx serve dist` 預覽，記得於預覽環境設定 `EXPO_PUBLIC_API_URL`（或更新 `constants/config.ts`）指向 ngrok／後端公開網址，才能寫入休假資料。
-- **Nginx 部署靜態網站**：先執行 `npx expo export --platform web` 產生 `dist/`，將其放到 Nginx 主機並在 `nginx.conf` 的 `server` block 指向該路徑，例如：
-  ```
-  server {
-      listen 80;
-      server_name localhost;
-      root  C:/Users/<使用者>/Documents/learning_App/dist;  # Windows 範例
-      index index.html;
-      location / {
-          try_files $uri $uri/ /index.html;
-      }
-  }
-  ```
-  驗證設定（`nginx -t`）並重載後，瀏覽 `http://<主機 IP 或網域>/` 即可存取 web 版；若要對外服務，請開放 80/443 埠並配置 HTTPS。
-- **正式部署**：若要長期對外提供服務，建議使用 Gunicorn/Uvicorn + Nginx 或雲端平台，並加上 HTTPS、驗證與防火牆設定。
+- **正式部署**：若要長期對外提供服務，建議使用 Gunicorn/Uvicorn 或雲端平台，並加上 HTTPS、驗證與防火牆設定。
 
 ## 後續開發建議
 - 將員工登入流程改為呼叫後端驗證，或整合 OAuth / AD 等實際機制。
